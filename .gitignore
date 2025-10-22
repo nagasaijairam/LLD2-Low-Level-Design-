@@ -1,3 +1,9 @@
+# macOS system files
 .DS_Store
-SOLID/.idea/
-SOLID/*.iml
+
+# IntelliJ IDE files
+*.iml
+.idea/
+
+# Build output
+out/
