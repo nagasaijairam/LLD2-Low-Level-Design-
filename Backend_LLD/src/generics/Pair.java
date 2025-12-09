@@ -1,0 +1,6 @@
+package generics;
+
+public class Pair<T, U> {
+    T first;
+    U second;
+}
