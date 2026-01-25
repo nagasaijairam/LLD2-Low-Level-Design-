@@ -3,9 +3,9 @@ package inheritance;
 public class D extends C{
     String address;
 
-    public D(){
+    public D(String name, Integer psp){
 //        System.out.println("Constructor of D");
-        super("Jiaram",99);
+        super(name,psp);
 
         /*Note:
          The super keyword should be used first because we cant initialize the variables of

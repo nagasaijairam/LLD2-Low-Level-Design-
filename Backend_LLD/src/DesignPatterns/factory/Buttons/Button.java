@@ -1,4 +1,5 @@
-package DesignPatterns.factory.Button;
+package DesignPatterns.factory.Buttons;
 
 public interface Button {
+    void click();
 }

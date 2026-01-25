@@ -5,7 +5,7 @@ public class Main {
 //        A a = new b ();
 //        a.university = "JNTUH"; throws error (a does not have attribute universityName)
 
-        A a  = new B();
+        A a  = new B("Jairam",26);
         a.name = "Jairam";
         a.age =  26;
 //        a.universityName = "JNTUH";// This is not allowed, Compiler knows only left side not right so the university is not part of the leftside.
