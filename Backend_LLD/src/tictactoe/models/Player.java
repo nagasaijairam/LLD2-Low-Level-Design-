@@ -4,11 +4,14 @@ public class Player {
     private String name;
     private Cell cell;
     private PlayerType player;
+    private Symbol symbol;
 
-    public Player(String name, Cell cell, PlayerType player) {
+    public Player(Symbol symbol,String name, PlayerType player) {
         this.name = name;
+        this.symbol = symbol;
         this.cell = cell;
         this.player = player;
+
     }
 
     public String getName() {
@@ -34,4 +37,20 @@ public class Player {
     public void setPlayer(PlayerType player) {
         this.player = player;
     }
+
+    public void setPlayerType(PlayerType playerType) {
+        this.player = playerType;
+    }
+
+    public PlayerType getPlayerType() {
+        return player;
+    }
+
+    public Symbol getSymbol() {
+        return symbol;
+    }
+    public void setSymbol(Symbol symbol) {
+        this.symbol = symbol;
+    }
+
 }
