@@ -16,6 +16,13 @@ public class Cell {
         this.cellState = CellState.EMPTY;
 //        this.player = player;
     }
+    public void display(){
+            if(cellState == CellState.EMPTY){
+                System.out.print("| - |");
+            }else {
+                System.out.print("| "+ player.getSymbol()+" |");
+            }
+    }
 
     public void setRow(int row) {
         this.row = row;

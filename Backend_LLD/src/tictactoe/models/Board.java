@@ -1,6 +1,7 @@
 package tictactoe.models;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class Board {
@@ -16,9 +17,19 @@ public class Board {
             for (int col = 0; col < dimension; col++) {
                 board.get(row).add(new Cell(row,col));
             }
-            System.out.println(board);
+            System.out.println(Arrays.deepToString(board.get(row).toArray()));
         }
     }
+
+    public void displayBoard(){
+        for(List<Cell> row : board){
+            for(Cell cell : row){
+                cell.display();
+            }
+            System.out.println("");
+        }
+    }
+
     public int getDimension() {
         return dimension;
     }
@@ -36,7 +47,7 @@ public class Board {
 //    public int getSize() {
 //        return dimension;
 //    }
-//
+
 //    public void setSize(int size) {
 //        this.dimension= size;
 //    }

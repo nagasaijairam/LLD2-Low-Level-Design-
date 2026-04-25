@@ -86,6 +86,14 @@ public class Game {
         this.winningStrategies = winningStrategies;
     }
 
+    public void printBoard(){
+        board.displayBoard();
+    }
+
+    public Move makeMove(Move move){
+        return null;
+    }
+
     public static class Builder{
         private int dimension;
         private List<Player> players;
@@ -100,8 +108,9 @@ public class Game {
         private void BotCountValidation(){
             int botCount = 0;
             for(Player p : players){
-                p.getPlayerType().equals(PlayerType.BOT);
-                botCount++;
+                if(p instanceof Bot) {
+                    botCount++;
+                }
             }
             if(botCount > 1){
                 throw new IllegalArgumentException("Bot can't have more than 1 player");
