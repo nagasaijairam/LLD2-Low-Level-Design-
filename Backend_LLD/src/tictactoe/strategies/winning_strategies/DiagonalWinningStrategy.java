@@ -10,7 +10,7 @@ public class DiagonalWinningStrategy implements WinningStrategy{
     private final Map<Character,Integer> rightDiagonalMap = new HashMap<Character,Integer>();
 
     public boolean checkWinner(Board board,Move move){
-        System.out.println("In DiagonalWinningStrategy");
+//        System.out.println("In DiagonalWinningStrategy");
         int row = move.getCell().getRow();
         int col = move.getCell().getCol();
         Character aChar = move.getPlayer().getSymbol().getaChar();

@@ -11,7 +11,7 @@ public class ColWinningStrategy implements WinningStrategy {
     private final Map<Integer,Map<Character,Integer>> colMap = new HashMap<>();
 
     public boolean checkWinner(Board board, Move move) {
-        System.out.println("In ColWinningStrategy");
+//        System.out.println("In ColWinningStrategy");
         int col = move.getCell().getCol();
         Character aChar = move.getPlayer().getSymbol().getaChar();
 

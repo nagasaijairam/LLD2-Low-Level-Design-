@@ -14,13 +14,13 @@ public class Cell {
         this.row = row;
         this.col = col;
         this.cellState = CellState.EMPTY;
-//        this.player = player;
     }
+
     public void display(){
             if(cellState == CellState.EMPTY){
                 System.out.print("| - |");
             }else {
-                System.out.print("| "+ player.getSymbol()+" |");
+                System.out.print("| "+ player.getSymbol().getaChar()+" |");
             }
     }
 

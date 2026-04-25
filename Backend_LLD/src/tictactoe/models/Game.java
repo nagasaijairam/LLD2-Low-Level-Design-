@@ -152,16 +152,8 @@ public Move makeMove() throws InvalidMoveExceptions {
     }else if(moves.size()==(board.getDimension()*board.getDimension())){
         winner = null;
         gameState = GameState.DRAW;
-    }else{
-        gameState = GameState.ENDED;
     }
 
-//    for(WinningStrategy winningStrategy : winningStrategies){
-//        if(winningStrategy.checkWinner(board,finalMove)){
-//            winner = currentPlayer;
-//            gameState = GameState.ENDED;
-//        }
-//    }
     return move;
 }
 

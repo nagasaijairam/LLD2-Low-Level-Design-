@@ -2,7 +2,6 @@ package tictactoe.strategies.winning_strategies;
 
 import tictactoe.models.Board;
 import tictactoe.models.Move;
-import tictactoe.models.Symbol;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -11,7 +10,7 @@ public class RowWinningStrategy implements WinningStrategy {
     private Map<Integer,Map<Character,Integer>> rowMaps = new HashMap<>();
 
     public boolean checkWinner(Board board, Move move){
-        System.out.println("In RowWinningStrategy");
+//        System.out.println("In RowWinningStrategy");
         int row = move.getCell().getRow();
         Character aChar = move.getPlayer().getSymbol().getaChar();
 
@@ -20,7 +19,6 @@ public class RowWinningStrategy implements WinningStrategy {
         }
 
         Map<Character,Integer> currentRowMap = rowMaps.get(row);
-
         if(!currentRowMap.containsKey(aChar)){
             currentRowMap.put(aChar, 0);
         }

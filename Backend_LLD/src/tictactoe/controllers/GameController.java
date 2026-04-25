@@ -21,7 +21,7 @@ public class GameController {
     }
 
     public Player getWinningPlayer(Game game){
-        return null;
+        return game.getWinner();
     }
 
     public void printBoard(Game game){
