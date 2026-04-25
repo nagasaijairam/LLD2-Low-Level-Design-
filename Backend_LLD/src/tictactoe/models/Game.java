@@ -1,5 +1,6 @@
 package tictactoe.models;
 
+import tictactoe.InvalidMoveExceptions;
 import tictactoe.strategies.winning_strategies.WinningStrategy;
 
 import java.util.ArrayList;
@@ -16,6 +17,15 @@ public class Game {
     private Player NextMovePlayer;
     private List<WinningStrategy> winningStrategies;
 
+    public int getNextMovePlayerIndex() {
+        return nextMovePlayerIndex;
+    }
+
+    public void setNextMovePlayerIndex(int nextMovePlayerIndex) {
+        this.nextMovePlayerIndex = nextMovePlayerIndex;
+    }
+
+    private int nextMovePlayerIndex;
     public static Builder getBuilder(){
         return new Builder();
     }
@@ -28,6 +38,7 @@ public class Game {
         this.moves = new ArrayList<>();
         this.NextMovePlayer = null;
         this.gameState = GameState.IN_PROGRESS;
+        this.nextMovePlayerIndex = 0;
     }
 
     public Board getBoard() {
@@ -90,9 +101,69 @@ public class Game {
         board.displayBoard();
     }
 
-    public Move makeMove(Move move){
-        return null;
+    private boolean validagteMove(Move move){
+        int row = move.getCell().getRow();
+        int col = move.getCell().getCol();
+
+        if((row<0 && row >= board.getDimension()) && (col<0 && col >= board.getDimension())){
+            return false;
+        }
+
+        if(!board.getBoard().get(row).get(col).getCellState().equals(CellState.EMPTY)){
+            return false;
+        }
+
+        return true;
     }
+
+    private boolean checkWinner(Move move){
+        for(WinningStrategy winningStrategy : winningStrategies){
+            if(winningStrategy.checkWinner(board,move)){
+                return true;
+            }
+        }
+        return false;
+    }
+
+public Move makeMove() throws InvalidMoveExceptions {
+    Player currentPlayer = players.get(nextMovePlayerIndex);
+    System.out.println("This is "+ currentPlayer.getName()+"'s move/turn");
+
+    //player will choose the move that he/she want to make.
+    Move move = currentPlayer.makeMove(board);
+
+    //Game will validate if the move that player has chosen is valid or not/
+    if(!validagteMove(move)){
+        System.out.println("This is illegal move");
+        throw new InvalidMoveExceptions("This is illegal move, please try again");
+    }
+    //move is valid so apply to the board
+    int row = move.getCell().getRow();
+    int col = move.getCell().getCol();
+    Cell cell = board.getBoard().get(row).get(col);
+    cell.setCellState(CellState.FILLED);
+    cell.setPlayer(currentPlayer);
+    Move finalMove = new Move(currentPlayer,cell);
+    moves.add(finalMove);
+    nextMovePlayerIndex = (nextMovePlayerIndex + 1)% players.size();
+    if(checkWinner(finalMove)){
+        winner = currentPlayer;
+        gameState = GameState.ENDED;
+    }else if(moves.size()==(board.getDimension()*board.getDimension())){
+        winner = null;
+        gameState = GameState.DRAW;
+    }else{
+        gameState = GameState.ENDED;
+    }
+
+//    for(WinningStrategy winningStrategy : winningStrategies){
+//        if(winningStrategy.checkWinner(board,finalMove)){
+//            winner = currentPlayer;
+//            gameState = GameState.ENDED;
+//        }
+//    }
+    return move;
+}
 
     public static class Builder{
         private int dimension;

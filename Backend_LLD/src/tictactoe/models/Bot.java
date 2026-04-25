@@ -31,5 +31,8 @@ public class Bot extends Player{
         this.botPlayingStrategey = botPlayingStrategey;
     }
 
-
+    @Override
+     public Move makeMove(Board board) {
+        return super.makeMove(board);
+    }
 }

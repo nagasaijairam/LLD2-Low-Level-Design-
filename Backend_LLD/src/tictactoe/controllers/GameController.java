@@ -1,9 +1,7 @@
 package tictactoe.controllers;
-import tictactoe.models.Game;
-import tictactoe.models.GameState;
-import tictactoe.models.Player;
+import tictactoe.InvalidMoveExceptions;
+import tictactoe.models.*;
 import tictactoe.strategies.winning_strategies.WinningStrategy;
-import tictactoe.models.Board;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,8 +12,8 @@ public class GameController {
         return Game.getBuilder().setDimension(dimensions).setPlayer(players).setWinningStrategies(winningStrategies).build();
     }
 
-    public void makeMove(Game game){
-
+    public Move makeMove(Game game) throws InvalidMoveExceptions {
+        return game.makeMove();
     }
 
     public GameState gameStatus(Game game){

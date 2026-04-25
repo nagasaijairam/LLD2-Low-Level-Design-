@@ -14,7 +14,7 @@ import java.util.Scanner;
 
 
 public class TicTacToeMain {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InvalidMoveExceptions {
         System.out.println("Welcome to TicTacToe!");
         Scanner input = new Scanner(System.in);
 
