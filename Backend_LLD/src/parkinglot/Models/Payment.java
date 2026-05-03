@@ -2,6 +2,13 @@ package parkinglot.Models;
 import java.util.Date;
 
 public class Payment extends BaseModel {
+
+    private int amount;
+    private Date time;
+    private String referenceNumber;
+    private PaymentStatus paymentStatus;
+    private PaymentMode paymentMode;
+
     public int getAmount() {
         return amount;
     }
@@ -41,12 +48,5 @@ public class Payment extends BaseModel {
     public void setPaymentMode(PaymentMode paymentMode) {
         this.paymentMode = paymentMode;
     }
-
-    private int amount;
-    private Date time;
-    private String referenceNumber;
-    private PaymentStatus paymentStatus;
-    private PaymentMode paymentMode;
-
 
 }

@@ -4,6 +4,15 @@ import java.util.Date;
 import java.util.List;
 
 public class Bill extends BaseModel {
+
+    private Date exitTime;
+    private int amount;
+    private Ticket ticket;
+    private Operator operator;
+    private BillStatus billStatus;
+    private List<Payment> payments;
+
+
     public Date getExitTime() {
         return exitTime;
     }
@@ -51,12 +60,5 @@ public class Bill extends BaseModel {
     public void setPayments(List<Payment> payments) {
         this.payments = payments;
     }
-
-    private Date exitTime;
-    private int amount;
-    private Ticket ticket;
-    private Operator operator;
-    private BillStatus billStatus;
-    private List<Payment> payments;
 
 }
